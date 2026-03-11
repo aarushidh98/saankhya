@@ -318,6 +318,20 @@
             .logo               { justify-content: flex-start !important; }
             .logo img           { margin: 0 !important; }
 
+            /* Hero: hide 220+ spaces badge */
+            .hero-badge { display: none !important; }
+
+            /* Science tabs: 12px font */
+            .about-tab          { font-size: 12px !important; padding: 10px 8px !important; }
+
+            /* Tab elements content: full width */
+            #tab-elements > div,
+            #tab-directions > div,
+            #tab-energy > div   { width: 100% !important; }
+
+            /* Instagram posts: 250px on phone */
+            .insta-post         { width: 250px !important; height: 250px !important; }
+
             /* Booking modal */
             #booking-modal > div { max-width: calc(100vw - 24px) !important; }
         }
@@ -526,7 +540,7 @@
             </div>
 
             <!-- Floating badge -->
-            <div style="position:absolute;top:-16px;right:-16px;background:white;border:1px solid #E7E1D7;border-radius:12px;padding:10px 16px;box-shadow:0 8px 24px rgba(0,0,0,0.08);display:flex;align-items:center;gap:10px;">
+            <div class="hero-badge" style="position:absolute;top:-16px;right:-16px;background:white;border:1px solid #E7E1D7;border-radius:12px;padding:10px 16px;box-shadow:0 8px 24px rgba(0,0,0,0.08);display:flex;align-items:center;gap:10px;">
                 <span style="font-size:18px;">🧭</span>
                 <div style="font-size:11px;line-height:1.4;"><div style="font-weight:600;">220+ spaces</div><div style="color:#6B7D5C;">harmonized</div>
             </div>
