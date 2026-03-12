@@ -200,11 +200,6 @@
         .insta-post:hover .insta-post-overlay svg { opacity: 1; }
         .insta-post:hover img { transform: scale(1.04); }
 
-        @media (max-width: 768px) {
-        .insta-head { padding: 0 20px; }
-        .insta-post { width: 180px; height: 180px; border-radius: 14px; }
-        }
-
         @media (max-width: 960px) {
             .tst-card { flex: 0 0 calc((100% - 24px) / 2); }
         }
@@ -232,12 +227,7 @@
             .strip-item:last-child { border-bottom:none; }
         }
 
-        /* ═══════════════════════════════════════════════════
-           RESPONSIVE — Tablet & Mobile only
-           Desktop (>1023px) is completely untouched.
-           ═══════════════════════════════════════════════════ */
-
-        /* ── Tablet ≤1023px: tighten padding ────────────── */
+        /* ── Tablet ≤1023px ── */
         @media (max-width: 1023px) {
             .nav-inner          { padding: 0 20px !important; }
             #hero-grid          { padding-left: 40px !important; padding-right: 40px !important; }
@@ -247,19 +237,22 @@
             .insta-head         { padding-left: 40px !important; padding-right: 40px !important; }
             #instagram > div:last-child { padding-left: 40px !important; padding-right: 40px !important; }
             #contact > div      { padding-left: 40px !important; padding-right: 40px !important; }
-            #about-grid         { gap: 40px !important; }
+            #about-grid         { gap: 40px !important; display: flex !important; flex-direction: column !important; }
+            #about-grid > div:nth-child(1) { order: 2 !important; }
+            #about-grid > div:nth-child(2) { order: 1 !important; }
             #phil-grid          { gap: 44px !important; }
             #contact-grid       { gap: 40px !important; }
-            /* Yantra: unstick and scale */
             .yantra-wrap        { position: static !important; }
             .yantra-wrap svg    { max-width: 340px !important; height: auto !important; }
             header.hero-bg      { min-height: auto !important; padding-bottom: 64px; }
+            #tab-directions > div { grid-template-columns: 1fr !important; }
+            h1.heading-font,
+            h2.heading-font,
+            .heading-font       { font-size: 40px !important; letter-spacing: -1px !important; }
         }
 
-        /* ── Mobile ≤640px ──────────────────────────────── */
+        /* ── Mobile ≤640px ── */
         @media (max-width: 640px) {
-
-            /* Spacing */
             .nav-inner          { padding: 0 16px !important; }
             #hero-grid          { padding: 20px 20px 36px !important; }
             #about > div        { padding-left: 20px !important; padding-right: 20px !important; }
@@ -273,95 +266,70 @@
             #instagram          { padding-top: 52px !important; padding-bottom: 52px !important; }
             #contact            { padding-top: 52px !important; padding-bottom: 52px !important; }
 
-            /* Headings: 45px */
             h1.heading-font,
             h2.heading-font,
             .heading-font       { font-size: 45px !important; letter-spacing: -1px !important; }
 
-            /* ── HERO: content → SVG card below (centered) ── */
             header.hero-bg      { min-height: auto !important; padding-bottom: 40px !important; }
             #hero-grid          { display: flex !important; flex-direction: column !important; gap: 24px !important; }
             #hero-grid > div:nth-child(1) { order: 1 !important; }
             #hero-grid > div:nth-child(2) { order: 2 !important; display: flex !important; justify-content: center !important; }
             #hero-grid > div:nth-child(2) > div { max-width: 340px !important; width: 100% !important; }
+            .hero-badge         { display: none !important; }
 
-            /* ── ABOUT: text first, SVG card centered below ─ */
             #about-grid         { display: flex !important; flex-direction: column !important; gap: 28px !important; align-items: stretch !important; }
             #about-grid > div:nth-child(1) { order: 2 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; }
             #about-grid > div:nth-child(1) > div { max-width: 340px !important; width: 100% !important; padding: 20px !important; margin: 0 auto !important; box-sizing: border-box !important; }
             #about-grid > div:nth-child(2) { order: 1 !important; }
 
-            /* ── PHILOSOPHY: pills first, yantra centered below */
             #phil-grid          { display: flex !important; flex-direction: column !important; gap: 28px !important; align-items: stretch !important; }
             #phil-grid > div:nth-child(1) { order: 1 !important; }
             #phil-grid > div:nth-child(2) { order: 2 !important; display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; }
             .yantra-wrap        { position: static !important; display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; }
             .yantra-wrap svg    { max-width: 280px !important; width: 100% !important; height: auto !important; display: block !important; margin: 0 auto !important; }
 
-            /* Pills */
             .pill-name          { font-size: 20px !important; }
             .pill-header        { padding: 14px 16px !important; gap: 10px !important; }
             .pill-quality       { display: none !important; }
             .pill-body          { padding: 10px 16px 14px 36px !important; }
 
-            /* Tabs */
-            .about-tab          { font-size: 10px !important; padding: 10px 8px !important; }
-
-            /* Testimonials nav arrows */
-            #testimonials > div > div:first-child > div:last-child { display: none !important; }
-
-            /* Contact */
-            #contact-grid       { display: flex !important; flex-direction: column !important; gap: 28px !important; }
-            #contact-grid > div:last-child > div:first-child { padding: 20px !important; }
-
-            /* Logo stays left */
-            .logo               { justify-content: flex-start !important; }
-            .logo img           { margin: 0 !important; }
-
-            /* Hero: hide 220+ spaces badge */
-            .hero-badge { display: none !important; }
-
-            /* Science tabs: 12px font */
             .about-tab          { font-size: 12px !important; padding: 10px 8px !important; }
-
-            /* Tab elements content: full width */
             #tab-elements > div,
             #tab-directions > div,
             #tab-energy > div   { width: 100% !important; }
 
-            /* Instagram posts: 250px on phone */
+            #testimonials > div > div:first-child > div:last-child { display: none !important; }
+
+            #contact-grid       { display: flex !important; flex-direction: column !important; gap: 28px !important; }
+            #contact-grid > div:last-child > div:first-child { padding: 20px !important; }
+
+            .logo               { justify-content: flex-start !important; }
+            .logo img           { margin: 0 !important; }
+
             .insta-post         { width: 250px !important; height: 250px !important; }
 
-            /* Booking modal */
             #booking-modal > div { max-width: calc(100vw - 24px) !important; }
         }
 
     </style>
-</head>
-<body>
+</head><body>
 
 <div id="progress-bar"></div>
 
 <!-- ═══ NAVBAR ═══ -->
 <nav id="main-nav">
     <div class="nav-inner">
-
-        <!-- Logo -->
         <a class="logo" href="#">
             <img class="logo-icon" src="logo.jpg">
             <span class="logo-text">Saa.nkhya</span>
         </a>
-
-        <!-- Desktop links -->
         <div class="desktop-links" id="desktop-links">
-            <a class="nav-link" href="#about"        onclick="smoothScrollTo('about');return false;">ABOUT</a>            
+            <a class="nav-link" href="#about"        onclick="smoothScrollTo('about');return false;">ABOUT</a>
             <a class="nav-link" href="#philosophy"   onclick="smoothScrollTo('philosophy');return false;">PHILOSOPHY</a>
             <a class="nav-link" href="#testimonials" onclick="smoothScrollTo('testimonials');return false;">STORIES</a>
             <a class="nav-link" href="#instagram"    onclick="smoothScrollTo('instagram');return false;">INSTAGRAM</a>
             <a class="nav-link" href="#contact"      onclick="smoothScrollTo('contact');return false;">CONNECT</a>
         </div>
-
-        <!-- Right -->
         <div class="nav-right">
             <button class="book-btn" id="book-btn-desk" onclick="showBookingModal()">
                 <i class="fa-solid fa-calendar" style="font-size:12px;"></i> BOOK CONSULTATION
@@ -371,11 +339,9 @@
             </button>
         </div>
     </div>
-
-    <!-- Mobile dropdown -->
     <div id="mobile-menu">
         <a class="mob-link" href="#about"        onclick="closeMenu()">About Us</a>
-        <a class="mob-link" href="#instagram"        onclick="closeMenu()">What is Vastu</a>
+        <a class="mob-link" href="#instagram"    onclick="closeMenu()">What is Vastu</a>
         <a class="mob-link" href="#philosophy"   onclick="closeMenu()">Our Philosophy</a>
         <a class="mob-link" href="#testimonials" onclick="closeMenu()">Client Stories</a>
         <a class="mob-link" href="#contact"      onclick="closeMenu()">Contact</a>
@@ -387,7 +353,6 @@
 <!-- ═══ HERO ═══ -->
 <header class="hero-bg" style="min-height:100vh;display:flex;align-items:center;position:relative;padding-top:72px;overflow:hidden;">
 
-    <!-- Background vastu icons at low opacity -->
     <div style="position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;">
         <div style="position:absolute;top:10%;left:4%;font-size:160px;color:#C96A3D;opacity:0;font-family:serif;line-height:1;">ॐ</div>
         <svg style="position:absolute;top:-60px;right:-60px;width:380px;height:380px;opacity:0;" viewBox="0 0 320 320" fill="none">
@@ -448,7 +413,7 @@
                 <button onclick="showBookingModal()" style="display:flex;align-items:center;gap:10px;padding:14px 24px;background:#C96A3D;color:white;border:none;border-radius:9999px;font-size:13px;font-weight:600;cursor:pointer;">
                     BOOK CONSULTATION <i class="fa-solid fa-arrow-right"></i>
                 </button>
-                <button onclick="smoothScrollTo('vastu')" style="padding:14px 24px;border:1px solid rgba(62,58,54,0.25);background:#9c8d65;font-weight: 600; border-radius:9999px;font-size:13px;font-weight:600;cursor:pointer;color:white;">
+                <button onclick="smoothScrollTo('vastu')" style="padding:14px 24px;border:1px solid rgba(62,58,54,0.25);background:#9c8d65;font-weight:600;border-radius:9999px;font-size:13px;cursor:pointer;color:white;">
                     EXPLORE VASTU
                 </button>
             </div>
@@ -457,10 +422,7 @@
         <!-- RIGHT: Vastu blueprint -->
         <div style="position:relative;display:flex;justify-content:center;">
             <div style="background:white;border-radius:24px;box-shadow:0 24px 60px rgba(62,58,54,0.12);padding:20px;position:relative;width:100%;max-width:420px;">
-
-                <!-- Blueprint grid background -->
                 <div style="background:#f0f4f8;border-radius:18px;padding:24px;position:relative;overflow:hidden;">
-                    <!-- Blueprint grid lines -->
                     <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.25;" preserveAspectRatio="none">
                         <defs>
                             <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -469,8 +431,6 @@
                         </defs>
                         <rect width="100%" height="100%" fill="url(#grid)"/>
                     </svg>
-
-                    <!-- Vastu floor plan SVG -->
                     <svg viewBox="0 0 340 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;position:relative;z-index:1;">
                         <rect x="20" y="20" width="300" height="260" stroke="#2a5a8a" stroke-width="2.5" fill="rgba(255,255,255,0.6)" rx="2"/>
                         <line x1="120" y1="20" x2="120" y2="280" stroke="#2a5a8a" stroke-width="1" stroke-dasharray="4 3"/>
@@ -525,8 +485,6 @@
                         </g>
                     </svg>
                 </div>
-
-                <!-- Blueprint label -->
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding:0 4px;">
                     <div>
                         <div style="font-size:11px;font-weight:600;letter-spacing:1px;color:#3E3A36;">VASTU MANDALA</div>
@@ -542,7 +500,7 @@
             <!-- Floating badge -->
             <div class="hero-badge" style="position:absolute;top:-16px;right:-16px;background:white;border:1px solid #E7E1D7;border-radius:12px;padding:10px 16px;box-shadow:0 8px 24px rgba(0,0,0,0.08);display:flex;align-items:center;gap:10px;">
                 <span style="font-size:18px;">🧭</span>
-                <div style="font-size:11px;line-height:1.4;"><div style="font-weight:600;">220+ spaces</div><div style="color:#6B7D5C;">harmonized</div>
+                <div style="font-size:11px;line-height:1.4;"><div style="font-weight:600;">220+ spaces</div><div style="color:#6B7D5C;">harmonized</div></div>
             </div>
         </div>
     </div>
@@ -559,18 +517,15 @@
 @keyframes spinRevSlow { from{transform:rotate(0deg)} to{transform:rotate(-360deg)} }
 @keyframes flowDash { to { stroke-dashoffset: -40; } }
 @keyframes fadeLabel { 0%,100%{opacity:0.5} 50%{opacity:1} }
-
 .vastu-ring-1 { animation: spinSlow 18s linear infinite; transform-origin: 200px 200px; }
 .vastu-ring-2 { animation: spinRevSlow 12s linear infinite; transform-origin: 200px 200px; }
 .vastu-ring-3 { animation: spinSlow 28s linear infinite; transform-origin: 200px 200px; }
 .flow-path    { stroke-dasharray: 8 6; animation: flowDash 2s linear infinite; }
 .flow-path-r  { stroke-dasharray: 8 6; animation: flowDash 2.5s linear infinite reverse; }
-
 .elem-fire  { animation: orbitCW  7s  linear infinite; transform-origin: 200px 200px; }
 .elem-water { animation: orbitCCW 9s  linear infinite; transform-origin: 200px 200px; }
 .elem-earth { animation: orbitMid 11s linear infinite; transform-origin: 200px 200px; }
 .elem-air   { animation: orbitCW  13s linear infinite; transform-origin: 200px 200px; }
-
 .about-tab { cursor:pointer; transition: all 0.25s ease; border-bottom: 2px solid transparent; }
 .about-tab.active { border-bottom-color: #C96A3D; color: #3E3A36; }
 .about-tab:not(.active) { color: #8a7060; }
@@ -580,13 +535,11 @@
 
 <section id="about" style="padding:96px 0;background:#F7F5F2;overflow:hidden;">
     <div style="max-width:1400px;margin:0 auto;padding:0 84px;">
-
         <div id="about-grid" style="display:grid;grid-template-columns:0.7fr 1fr;gap:72px;align-items:start;">
 
             <!-- LEFT: Animated Vastu SVG -->
             <div style="position:relative;display:flex;align-items:center;justify-content:center;">
                 <div style="background:white;border-radius:28px;box-shadow:0 24px 64px rgba(62,58,54,0.1);padding:32px;width:100%;max-width:440px;">
-
                     <svg id="vastu-anim" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
                         <defs>
                             <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
@@ -659,8 +612,6 @@
                         <text x="18"  y="204" text-anchor="middle" font-family="monospace" font-size="10" fill="#3E3A36" font-weight="600" opacity="0.6">W</text>
                         <text x="384" y="204" text-anchor="middle" font-family="monospace" font-size="10" fill="#3E3A36" font-weight="600" opacity="0.6">E</text>
                     </svg>
-
-                    <!-- Legend below animation -->
                     <div style="display:flex;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap;">
                         <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:#6B7D5C;"><span style="width:8px;height:8px;background:#C96A3D;border-radius:50%;display:inline-block;"></span>Fire</div>
                         <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:#6B7D5C;"><span style="width:8px;height:8px;background:#4a90d9;border-radius:50%;display:inline-block;"></span>Water</div>
@@ -676,16 +627,13 @@
                 <span style="display:inline-block;padding:5px 14px;background:#E7E1D7;color:#6B7D5C;font-size:11px;font-weight:500;border-radius:9999px;margin-bottom:20px;letter-spacing:0.5px;">THE SCIENCE</span>
                 <h2 class="heading-font" style="font-size:clamp(34px,4vw,54px);letter-spacing:-1.5px;line-height:1;margin-bottom:16px;">The <em style="font-style:italic;color:#9c8d65;">science</em><br>behind Vastu</h2>
                 <p style="font-size:15px;line-height:1.8;color:#6B7D5C;margin-bottom:32px;">Vastu Shastra is a 5,000-year-old Vedic science that treats a building as a living body — governed by the same five elements and directional forces that shape all of nature. When aligned, a space becomes a silent engine of well-being.</p>
-
-                <!-- Tabs -->
                 <div style="display:flex;gap:0;border-bottom:1px solid #E7E1D7;margin-bottom:24px;">
                     <div class="about-tab active" onclick="aboutTab(this,'tab-elements')" style="padding:10px 16px;font-size:12px;font-weight:600;letter-spacing:0.5px;">5 ELEMENTS</div>
                     <div class="about-tab" onclick="aboutTab(this,'tab-directions')" style="padding:10px 16px;font-size:12px;font-weight:600;letter-spacing:0.5px;">DIRECTIONS</div>
                     <div class="about-tab" onclick="aboutTab(this,'tab-energy')" style="padding:10px 16px;font-size:12px;font-weight:600;letter-spacing:0.5px;">ENERGY FLOW</div>
                 </div>
-
                 <div id="tab-elements" class="about-panel active">
-                    <div style="display:flex;flex-direction:column;gap:12px; width:90%;">
+                    <div style="display:flex;flex-direction:column;gap:12px;width:90%;">
                         <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:white;border-radius:14px;border:1px solid #E7E1D7;">
                             <span style="font-size:22px;width:36px;text-align:center;">🔥</span>
                             <div><div style="font-weight:600;font-size:13px;">Agni — Fire</div><div style="font-size:12px;color:#8a7060;margin-top:2px;">South-East · Energy, digestion, transformation</div></div>
@@ -708,7 +656,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="tab-directions" class="about-panel">
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
                         <div style="padding:14px;background:white;border-radius:14px;border:1px solid #E7E1D7;">
@@ -733,30 +680,27 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="tab-energy" class="about-panel">
                     <p style="font-size:14px;line-height:1.8;color:#6B7D5C;margin-bottom:20px;">Vastu treats a space as a field of flowing Prana — life-force energy. Just as blood flows through the body, energy moves through a building along invisible pathways called <em>Nadis</em>.</p>
-                    <div style="display:flex;flex-direction:column;gap:10px; width:90%;">
+                    <div style="display:flex;flex-direction:column;gap:10px;width:90%;">
                         <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:white;border-radius:14px;border:1px solid #E7E1D7;">
                             <div style="width:6px;height:6px;background:#C96A3D;border-radius:50%;margin-top:6px;flex-shrink:0;"></div>
-                            <div style="font-size:13px;color:#8a7060;margin-top:2px; line-height: 1.2;"><strong style="font-size:13px;color:#3E3A36; ">Brahmastana</strong><br> The central energy vortex. Should remain open to allow prana to circulate freely.</div>
+                            <div style="font-size:13px;color:#8a7060;margin-top:2px;line-height:1.2;"><strong style="font-size:13px;color:#3E3A36;">Brahmastana</strong><br>The central energy vortex. Should remain open to allow prana to circulate freely.</div>
                         </div>
                         <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:white;border-radius:14px;border:1px solid #E7E1D7;">
                             <div style="width:6px;height:6px;background:#6B7D5C;border-radius:50%;margin-top:6px;flex-shrink:0;"></div>
-                            <div style="font-size:13px;color:#8a7060;margin-top:2px; line-height: 1.2;"><strong style="font-size:13px;color:#3E3A36;">Magnetic field alignment</strong><br> Earth's geomagnetic field flows North to South. Sleeping with the head to the South aligns the body with it.</div>
+                            <div style="font-size:13px;color:#8a7060;margin-top:2px;line-height:1.2;"><strong style="font-size:13px;color:#3E3A36;">Magnetic field alignment</strong><br>Earth's geomagnetic field flows North to South. Sleeping with the head to the South aligns the body with it.</div>
                         </div>
                         <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:white;border-radius:14px;border:1px solid #E7E1D7;">
                             <div style="width:6px;height:6px;background:#D4A853;border-radius:50%;margin-top:6px;flex-shrink:0;"></div>
-                            <div style="font-size:13px;color:#8a7060;margin-top:2px; line-height: 1.2;"><strong style="font-size:13px;color:#3E3A36;">Solar path</strong><br>The Sun's journey East→South→West charges zones differently through the day. Room placement is tuned accordingly.</div>
+                            <div style="font-size:13px;color:#8a7060;margin-top:2px;line-height:1.2;"><strong style="font-size:13px;color:#3E3A36;">Solar path</strong><br>The Sun's journey East→South→West charges zones differently through the day. Room placement is tuned accordingly.</div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-
 <script>
 function aboutTab(el, panelId) {
     document.querySelectorAll('.about-tab').forEach(function(t){ t.classList.remove('active'); });
@@ -766,17 +710,14 @@ function aboutTab(el, panelId) {
 }
 </script>
 
-<!-- ═══ PHILOSOPHY — SACRED GEOMETRY ═══ -->
+<!-- ═══ PHILOSOPHY ═══ -->
 <section id="philosophy">
     <div style="max-width:1400px;margin:0 auto;padding:96px 84px;position:relative;z-index:1;">
         <div id="phil-grid" style="display:grid;gap:72px;align-items:start;">
-
-            <!-- Pills -->
             <div>
                 <span style="display:inline-block;padding:5px 14px;background:#E7E1D7;color:#6B7D5C;font-size:11px;font-weight:500;border-radius:9999px;margin-bottom:20px;letter-spacing:0.5px;">THE EMBLEM · Saa.nkhya</span>
                 <h2 class="heading-font" style="font-size:clamp(34px,4vw,54px);letter-spacing:-1.5px;line-height:1;margin-bottom:16px;">Three Forces<br><em style="font-style:italic;color:#9c8d65;">One</em> Balance.</h2>
                 <p class="phil-sub">The Saankhya emblem encodes the three gunas of Samkhya philosophy. Each arc of the yantra corresponds to a force that shapes your environment — and your life.</p>
-
                 <div class="phil-pill active" onclick="philSelect(this)">
                     <div class="pill-header">
                         <div class="pill-dot" style="background:#C96A3D;"></div>
@@ -786,7 +727,6 @@ function aboutTab(el, panelId) {
                     </div>
                     <div class="pill-body">The force of kinetic energy. In Vastu practice, Rajas governs the south-east — the zone of fire, productivity and transformation. When balanced, it fuels purposeful action; in excess, it creates anxiety and conflict. Corrected through cooler tones, water elements, and open south-east walls.</div>
                 </div>
-
                 <div class="phil-pill" onclick="philSelect(this)">
                     <div class="pill-header">
                         <div class="pill-dot" style="background:#6B7D5C;"></div>
@@ -796,7 +736,6 @@ function aboutTab(el, panelId) {
                     </div>
                     <div class="pill-body">The force of mass and structure. Tamas governs the south-west — the zone of earth, rest and emotional security. A home's master bedroom placed here grants deep, restorative sleep. Excess Tamas is remedied through light, decluttering, and open pathways.</div>
                 </div>
-
                 <div class="phil-pill" onclick="philSelect(this)">
                     <div class="pill-header">
                         <div class="pill-dot" style="background:#D4A853;"></div>
@@ -807,8 +746,6 @@ function aboutTab(el, panelId) {
                     <div class="pill-body">The force of luminous awareness. Sattva governs the north-east — the most sacred direction. Meditation rooms and altars placed here receive the highest blessings and cultivate clarity of mind. Keep this zone open, clean, and free of clutter.</div>
                 </div>
             </div>
-
-            <!-- Yantra -->
             <div class="yantra-wrap">
                 <svg width="460" height="460" viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="22" y="22" width="416" height="416" stroke="rgba(42,31,20,0.07)" stroke-width="1"/>
@@ -836,7 +773,7 @@ function aboutTab(el, panelId) {
                     <text x="230" y="452" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#8a7060" letter-spacing="2">SOUTH-WEST · TAMAS</text>
                     <text x="300" y="98"  font-family="'IBM Plex Mono',monospace" font-size="9" fill="#C96A3D" letter-spacing="1.5" opacity="0.9">RAJAS</text>
                     <text x="94"  y="370" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#6B7D5C" letter-spacing="1.5" opacity="0.9">TAMAS</text>
-                    <text x="282" cy="290" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#D4A853" letter-spacing="1.5" opacity="0.9" y="290">SATTVA</text>
+                    <text x="282" y="290" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#D4A853" letter-spacing="1.5" opacity="0.9">SATTVA</text>
                 </svg>
             </div>
         </div>
@@ -846,292 +783,101 @@ function aboutTab(el, panelId) {
 <!-- ═══ TESTIMONIALS ═══ -->
 <section id="testimonials" style="padding:96px 0;background:#F7F5F2;">
     <div style="max-width:1400px;margin:0 auto;padding:0 84px;">
-
-        <!-- Header row -->
         <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:24px;flex-wrap:wrap;">
             <div>
                 <span style="display:inline-block;padding:5px 14px;background:#E7E1D7;color:#6B7D5C;font-size:11px;font-weight:500;border-radius:9999px;letter-spacing:0.5px;margin-bottom:14px;">REAL STORIES</span>
                 <h2 class="heading-font" style="font-size:clamp(34px,4vw,54px);letter-spacing:-1.5px;line-height:1;margin-bottom:16px;">Lives <em style="font-style:italic;color:#9c8d65;">transformed</em><br>by space.</h2>
             </div>
             <div style="display:flex;gap:10px;padding-bottom:6px;">
-                <button class="tst-nav-btn" id="tst-prev" onclick="tstMove(-1)" aria-label="Previous">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
-                <button class="tst-nav-btn" id="tst-next" onclick="tstMove(1)" aria-label="Next">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
+                <button class="tst-nav-btn" id="tst-prev" onclick="tstMove(-1)" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="tst-nav-btn" id="tst-next" onclick="tstMove(1)" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
-
-        <!-- Carousel -->
         <div class="tst-viewport" id="tst-viewport">
             <div class="tst-track" id="tst-track">
-
                 <div class="tst-card">
-                    <div>
-                        <div class="tst-card-stars">★★★★<span style="opacity:0.25;">★</span></div>
-                        <p class="tst-card-quote">After the consultation our home feels entirely lighter. My children sleep better, we have fewer arguments — and there is a stillness I cannot explain, only feel.</p>
-                    </div>
-                    <div>
-                        <div class="tst-card-divider"></div>
-                        <div class="tst-card-person">
-                            <div class="tst-card-id">
-                                <div class="tst-avatar" style="background:linear-gradient(135deg,#C96A3D,#d4845a);">M</div>
-                                <div>
-                                    <div class="tst-person-name">Meera Sharma</div>
-                                    <div class="tst-person-sub">Homeowner · Bengaluru</div>
-                                </div>
-                            </div>
-                            <span class="tst-card-tag">Home</span>
-                        </div>
-                    </div>
+                    <div><div class="tst-card-stars">★★★★<span style="opacity:0.25;">★</span></div><p class="tst-card-quote">After the consultation our home feels entirely lighter. My children sleep better, we have fewer arguments — and there is a stillness I cannot explain, only feel.</p></div>
+                    <div><div class="tst-card-divider"></div><div class="tst-card-person"><div class="tst-card-id"><div class="tst-avatar" style="background:linear-gradient(135deg,#C96A3D,#d4845a);">M</div><div><div class="tst-person-name">Meera Sharma</div><div class="tst-person-sub">Homeowner · Bengaluru</div></div></div><span class="tst-card-tag">Home</span></div></div>
                 </div>
-
                 <div class="tst-card">
-                    <div>
-                        <div class="tst-card-stars">★★★★★</div>
-                        <p class="tst-card-quote">Our office productivity jumped 40% after implementing the recommendations. The team feels more focused and creative. The numbers speak for themselves.</p>
-                    </div>
-                    <div>
-                        <div class="tst-card-divider"></div>
-                        <div class="tst-card-person">
-                            <div class="tst-card-id">
-                                <div class="tst-avatar" style="background:linear-gradient(135deg,#6B7D5C,#8a9e76);">R</div>
-                                <div>
-                                    <div class="tst-person-name">Rohan Kapoor</div>
-                                    <div class="tst-person-sub">Founder, GreenLeaf Tech</div>
-                                </div>
-                            </div>
-                            <span class="tst-card-tag">Office</span>
-                        </div>
-                    </div>
+                    <div><div class="tst-card-stars">★★★★★</div><p class="tst-card-quote">Our office productivity jumped 40% after implementing the recommendations. The team feels more focused and creative. The numbers speak for themselves.</p></div>
+                    <div><div class="tst-card-divider"></div><div class="tst-card-person"><div class="tst-card-id"><div class="tst-avatar" style="background:linear-gradient(135deg,#6B7D5C,#8a9e76);">R</div><div><div class="tst-person-name">Rohan Kapoor</div><div class="tst-person-sub">Founder, GreenLeaf Tech</div></div></div><span class="tst-card-tag">Office</span></div></div>
                 </div>
-
                 <div class="tst-card">
-                    <div>
-                        <div class="tst-card-stars">★★★★<span style="opacity:0.25;">★</span></div>
-                        <p class="tst-card-quote">My meditation room is now perfectly aligned with the north-east. The most peaceful I have felt in years. Space truly shapes how we feel — Saankhya proved that.</p>
-                    </div>
-                    <div>
-                        <div class="tst-card-divider"></div>
-                        <div class="tst-card-person">
-                            <div class="tst-card-id">
-                                <div class="tst-avatar" style="background:linear-gradient(135deg,#D4A853,#c89a3e);">P</div>
-                                <div>
-                                    <div class="tst-person-name">Priya Nair</div>
-                                    <div class="tst-person-sub">Yoga Teacher · Kerala</div>
-                                </div>
-                            </div>
-                            <span class="tst-card-tag">Studio</span>
-                        </div>
-                    </div>
+                    <div><div class="tst-card-stars">★★★★<span style="opacity:0.25;">★</span></div><p class="tst-card-quote">My meditation room is now perfectly aligned with the north-east. The most peaceful I have felt in years. Space truly shapes how we feel — Saankhya proved that.</p></div>
+                    <div><div class="tst-card-divider"></div><div class="tst-card-person"><div class="tst-card-id"><div class="tst-avatar" style="background:linear-gradient(135deg,#D4A853,#c89a3e);">P</div><div><div class="tst-person-name">Priya Nair</div><div class="tst-person-sub">Yoga Teacher · Kerala</div></div></div><span class="tst-card-tag">Studio</span></div></div>
                 </div>
-
                 <div class="tst-card">
-                    <div>
-                        <div class="tst-card-stars">★★★★★</div>
-                        <p class="tst-card-quote">Our restaurant footfall increased within weeks. Guests keep saying they feel comfortable and want to stay longer. The changes were subtle but the effect was immediate.</p>
-                    </div>
-                    <div>
-                        <div class="tst-card-divider"></div>
-                        <div class="tst-card-person">
-                            <div class="tst-card-id">
-                                <div class="tst-avatar" style="background:linear-gradient(135deg,#3E3A36,#5a5450);">A</div>
-                                <div>
-                                    <div class="tst-person-name">Arjun Menon</div>
-                                    <div class="tst-person-sub">Restaurateur · Chennai</div>
-                                </div>
-                            </div>
-                            <span class="tst-card-tag">Retail</span>
-                        </div>
-                    </div>
+                    <div><div class="tst-card-stars">★★★★★</div><p class="tst-card-quote">Our restaurant footfall increased within weeks. Guests keep saying they feel comfortable and want to stay longer. The changes were subtle but the effect was immediate.</p></div>
+                    <div><div class="tst-card-divider"></div><div class="tst-card-person"><div class="tst-card-id"><div class="tst-avatar" style="background:linear-gradient(135deg,#3E3A36,#5a5450);">A</div><div><div class="tst-person-name">Arjun Menon</div><div class="tst-person-sub">Restaurateur · Chennai</div></div></div><span class="tst-card-tag">Retail</span></div></div>
                 </div>
-
                 <div class="tst-card">
-                    <div>
-                        <div class="tst-card-stars">★★★★★</div>
-                        <p class="tst-card-quote">We were struggling to sell our flat for eight months. After Saankhya's audit and a few small changes, we had an offer in three weeks. I wish we had done this sooner.</p>
-                    </div>
-                    <div>
-                        <div class="tst-card-divider"></div>
-                        <div class="tst-card-person">
-                            <div class="tst-card-id">
-                                <div class="tst-avatar" style="background:linear-gradient(135deg,#9b7ec8,#7a5ea8);">S</div>
-                                <div>
-                                    <div class="tst-person-name">Sunita Reddy</div>
-                                    <div class="tst-person-sub">Property Owner · Hyderabad</div>
-                                </div>
-                            </div>
-                            <span class="tst-card-tag">Property</span>
-                        </div>
-                    </div>
+                    <div><div class="tst-card-stars">★★★★★</div><p class="tst-card-quote">We were struggling to sell our flat for eight months. After Saankhya's audit and a few small changes, we had an offer in three weeks. I wish we had done this sooner.</p></div>
+                    <div><div class="tst-card-divider"></div><div class="tst-card-person"><div class="tst-card-id"><div class="tst-avatar" style="background:linear-gradient(135deg,#9b7ec8,#7a5ea8);">S</div><div><div class="tst-person-name">Sunita Reddy</div><div class="tst-person-sub">Property Owner · Hyderabad</div></div></div><span class="tst-card-tag">Property</span></div></div>
                 </div>
-
                 <div class="tst-card">
-                    <div>
-                        <div class="tst-card-stars">★★★★<span style="opacity:0.25;">★</span></div>
-                        <p class="tst-card-quote">As a developer I was sceptical, but client feedback after applying Vastu to the layout was unanimous — people felt the difference the moment they walked in.</p>
-                    </div>
-                    <div>
-                        <div class="tst-card-divider"></div>
-                        <div class="tst-card-person">
-                            <div class="tst-card-id">
-                                <div class="tst-avatar" style="background:linear-gradient(135deg,#4a7fa5,#3a6a8e);">K</div>
-                                <div>
-                                    <div class="tst-person-name">Karan Mehta</div>
-                                    <div class="tst-person-sub">Developer · Pune</div>
-                                </div>
-                            </div>
-                            <span class="tst-card-tag">New Build</span>
-                        </div>
-                    </div>
+                    <div><div class="tst-card-stars">★★★★<span style="opacity:0.25;">★</span></div><p class="tst-card-quote">As a developer I was sceptical, but client feedback after applying Vastu to the layout was unanimous — people felt the difference the moment they walked in.</p></div>
+                    <div><div class="tst-card-divider"></div><div class="tst-card-person"><div class="tst-card-id"><div class="tst-avatar" style="background:linear-gradient(135deg,#4a7fa5,#3a6a8e);">K</div><div><div class="tst-person-name">Karan Mehta</div><div class="tst-person-sub">Developer · Pune</div></div></div><span class="tst-card-tag">New Build</span></div></div>
                 </div>
-
             </div>
         </div>
-
-        <!-- Dots -->
         <div class="tst-dots" id="tst-dots"></div>
-
     </div>
 </section>
 
 <script>
 (function () {
-    var current  = 0;
-    var track    = document.getElementById('tst-track');
-    var dotsWrap = document.getElementById('tst-dots');
-    var btnPrev  = document.getElementById('tst-prev');
-    var btnNext  = document.getElementById('tst-next');
-    var viewport = document.getElementById('tst-viewport');
-    var cards    = track.querySelectorAll('.tst-card');
-    var total    = cards.length;
-
-    function cpp() {
-        var w = viewport.offsetWidth;
-        if (w < 641) return 1;
-        if (w < 961) return 2;
-        return 3;
-    }
-    function totalPages() { return Math.ceil(total / cpp()); }
-
-    function buildDots() {
-        dotsWrap.innerHTML = '';
-        for (var i = 0; i < totalPages(); i++) {
-            var d = document.createElement('div');
-            d.className = 'tst-dot' + (i === current ? ' active' : '');
-            (function(idx){ d.onclick = function(){ goTo(idx); }; })(i);
-            dotsWrap.appendChild(d);
-        }
-    }
-
-    function updateTrack() {
-        var n     = cpp();
-        var gap   = 24;
-        var cardW = (viewport.offsetWidth - gap * (n - 1)) / n;
-        cards.forEach(function(c){ c.style.flex = '0 0 ' + cardW + 'px'; });
-        track.style.transform = 'translateX(-' + current * (cardW + gap) * n + 'px)';
-    }
-
-    function goTo(idx) {
-        current = Math.max(0, Math.min(idx, totalPages() - 1));
-        updateTrack();
-        buildDots();
-        btnPrev.disabled = current === 0;
-        btnNext.disabled = current === totalPages() - 1;
-    }
-
-    window.tstMove = function(dir){ goTo(current + dir); };
-
+    var current=0,track=document.getElementById('tst-track'),dotsWrap=document.getElementById('tst-dots'),btnPrev=document.getElementById('tst-prev'),btnNext=document.getElementById('tst-next'),viewport=document.getElementById('tst-viewport'),cards=track.querySelectorAll('.tst-card'),total=cards.length;
+    function cpp(){var w=viewport.offsetWidth;if(w<641)return 1;if(w<961)return 2;return 3;}
+    function totalPages(){return Math.ceil(total/cpp());}
+    function buildDots(){dotsWrap.innerHTML='';for(var i=0;i<totalPages();i++){var d=document.createElement('div');d.className='tst-dot'+(i===current?' active':'');(function(idx){d.onclick=function(){goTo(idx);};})(i);dotsWrap.appendChild(d);}}
+    function updateTrack(){var n=cpp(),gap=24,cardW=(viewport.offsetWidth-gap*(n-1))/n;cards.forEach(function(c){c.style.flex='0 0 '+cardW+'px';});track.style.transform='translateX(-'+current*(cardW+gap)*n+'px)';}
+    function goTo(idx){current=Math.max(0,Math.min(idx,totalPages()-1));updateTrack();buildDots();btnPrev.disabled=current===0;btnNext.disabled=current===totalPages()-1;}
+    window.tstMove=function(dir){goTo(current+dir);};
     goTo(0);
-
-    var rt;
-    window.addEventListener('resize', function(){
-        clearTimeout(rt);
-        rt = setTimeout(function(){
-            if (current >= totalPages()) current = totalPages() - 1;
-            goTo(current);
-        }, 80);
-    });
-
-    var sx = 0;
-    viewport.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, { passive:true });
-    viewport.addEventListener('touchend',   function(e){
-        var diff = sx - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
-    }, { passive:true });
+    var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){if(current>=totalPages())current=totalPages()-1;goTo(current);},80);});
+    var sx=0;viewport.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});viewport.addEventListener('touchend',function(e){var diff=sx-e.changedTouches[0].clientX;if(Math.abs(diff)>40)goTo(current+(diff>0?1:-1));},{passive:true});
 })();
 </script>
 
 <!-- ═══ INSTAGRAM ═══ -->
 <section id="instagram">
-
     <div class="insta-head">
         <div>
             <span style="display:inline-block;padding:5px 14px;background:#E7E1D7;color:#6B7D5C;font-size:11px;font-weight:500;border-radius:9999px;letter-spacing:0.5px;margin-bottom:14px;">INSTAGRAM</span>
             <h2 class="heading-font" style="font-size:clamp(34px,4vw,54px);letter-spacing:-1.5px;line-height:1;color:#3E3A36;">From our <em style="font-style:italic;color:#9c8d65;">practice</em></h2>
         </div>
-
-        <a href="https://www.instagram.com/saa.nkhya/" target="_blank"
-           style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid #E7E1D7;border-radius:9999px;font-size:11px;font-weight:500;letter-spacing:0.5px;color:#3E3A36;text-decoration:none;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5"/>
-                <circle cx="12" cy="12" r="4"/>
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            </svg>
+        <a href="https://www.instagram.com/saa.nkhya/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid #E7E1D7;border-radius:9999px;font-size:11px;font-weight:500;letter-spacing:0.5px;color:#3E3A36;text-decoration:none;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             @saankhya
         </a>
     </div>
-
-    <!-- Single scrolling row -->
     <div class="insta-rows">
         <div class="insta-row-wrap" id="row1"></div>
     </div>
-
-    <!-- Show more -->
     <div style="max-width:1400px;margin:32px auto 0;padding:0 84px;display:flex;justify-content:flex-end;">
-        <a href="https://www.instagram.com/saa.nkhya/" target="_blank"
-           style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#3E3A36;text-decoration:none;padding-bottom:3px; border-bottom: 1px solid #9c8d65;">
+        <a href="https://www.instagram.com/saa.nkhya/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#3E3A36;text-decoration:none;padding-bottom:3px;border-bottom:1px solid #9c8d65;">
             <em>Show More</em>
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="1" y1="11" x2="11" y2="1"/>
-                <polyline points="4,1 11,1 11,8"/>
-            </svg>
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="11" x2="11" y2="1"/><polyline points="4,1 11,1 11,8"/></svg>
         </a>
     </div>
-
 </section>
 
 <script>
 (function(){
-    var posts = [
-        { src: 'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/639494959_18049059179709183_5190267581128097007_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzgzNjYxMDQwOTQxOTg1NzAyNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=NCr8Vyi6VkoQ7kNvwHtP1r_&_nc_oc=AdmfGVYc7tnM8Vd1XIP0t1vQtTfquEmRBGW6Zagf2vwuFBkw66OB8AUl745P1XvLnVU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfySoGyDib3lATWGD2UPtaEgn4YGQ4eoZuxrp6eb3qZEeA&oe=69B6BC80',  link: 'https://www.instagram.com/p/DU-Y9NHCWns/?img_index=1' },
-        { src: 'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/613031178_18044354066709183_3437596707382600369_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MzgwNTQ2Nzg4MzA2OTg1MzAwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=TPKf2VjGloAQ7kNvwGGaUXT&_nc_oc=Adlv4hnl-CuWPMse4Doi3aoM7GvYYLleURIdwJK49whc529XVrQp5obr1SddADBA6B0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfzMP9hNoKfgosqQSgXwskdEGrtm5m0SJpsqIHLI7sGVgA&oe=69B6CD3B',  link: 'https://instagram.com/saa.nkhya' },
-        { src: 'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/581227539_18038581385709183_5773567055018409634_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=Mzc2NzY4NTE2MzI1ODU2OTQ5NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=IngCdqwxBDcQ7kNvwHeOBSV&_nc_oc=AdlZnMzBZJ53CwKC95Cdw_61KJi1HieWc_1VULm9-4Pb8TgZqaDpuO6sEJ5DCtsIL-Q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=53x4EiUVT_ka3lnDQRK03w&_nc_ss=8&oh=00_AfxJ_i3Y5VFO3Uz-ryXV1-Fsjahwt68_2oOzfY7oBoRz-A&oe=69B6BF79',  link: 'https://instagram.com/saa.nkhya' },
-        { src: 'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/584370831_18039115001709183_8959600104686617961_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=Mzc3MTQyMzgxMTA4Mjc2NzEyMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=zI8zNy5g0pUQ7kNvwF-GRQ_&_nc_oc=AdnRDeLtnupSBUBObj6fJhdxHeF7NcXPx1IgMo8HUAQRTLxz63IkpXO5fnMeVOZidK4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=53x4EiUVT_ka3lnDQRK03w&_nc_ss=8&oh=00_Afy8Rs9uM0GfbuJ3DWu_9oLUpwKY0KTKHZtETRn6Atw9xw&oe=69B6E482',  link: 'https://instagram.com/saa.nkhya' },
-        { src: 'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/588078320_18040190042709183_1237780885319492281_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzc4ODY2MTA3NTg5MDMwMzU4NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=2wM3u6R5zkwQ7kNvwEhsUtd&_nc_oc=AdlE5bNTchCAOHA2ST5GbrYlqD2yQL2ucC4ziRJZmK8OF3A5WDAkCc43JFQN40MoLmY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfwbzLqo_TrHIHdFDt843onpYWkS5rDh7ZV1fMr6ipmwPw&oe=69B6C7B0',  link: 'https://instagram.com/saa.nkhya' },
-        { src: 'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/624097174_18046654016709183_7859694330509047111_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzgyMDcxMjkzODU0MTk2NTQzNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=CFmVw38pOkwQ7kNvwE1y8jg&_nc_oc=Admf56LUA0PLw6pr8bSk9c9IBBAOWRCUcyO45-vuO32-LyMDnQgk4VF8iAjnLHMGMTo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfwnrzrKLp0vRFRK2DSdFCF7KwwjNS9NMwTo3ck5RXbzSA&oe=69B6BD87',  link: 'https://instagram.com/saa.nkhya' },
-        { src: 'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/641228239_18049999184709183_4055711450667492475_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=Mzg0MjM2ODQ2MDk3NDI4NDcyMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=TES6X513M34Q7kNvwEpjZ84&_nc_oc=AdmqzHh1RaeBQXUw5ftdNyB_MhQx-r8BVoUIb_402r6AWKpSvwb1hYF6qVwebt-Rd9o&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfznRjd-stXwSARPxLJNkme1rkWT-P3SVbafPQZEwjfdog&oe=69B6EACC',  link: 'https://instagram.com/saa.nkhya' },
-        { src: 'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/587321451_18039546266709183_2643993392690065013_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzc3NDMxMDI0Njc0ODA2NDgzMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=BI9ehuuXgoEQ7kNvwF9UrNB&_nc_oc=AdkTSyKWd-d99yV6e3FStEyB4vXuyXhdBPXMy2C1VD95SLaZCqD4jOTLcVlGDW-8oMk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=53x4EiUVT_ka3lnDQRK03w&_nc_ss=8&oh=00_AfxPxxgmNF12WNwzE6EwFd7dqgK3k6P2FMB1_ROdwl-8kA&oe=69B6DAEB',  link: 'https://instagram.com/saa.nkhya' },
+    var posts=[
+        {src:'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/639494959_18049059179709183_5190267581128097007_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzgzNjYxMDQwOTQxOTg1NzAyNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=NCr8Vyi6VkoQ7kNvwHtP1r_&_nc_oc=AdmfGVYc7tnM8Vd1XIP0t1vQtTfquEmRBGW6Zagf2vwuFBkw66OB8AUl745P1XvLnVU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfySoGyDib3lATWGD2UPtaEgn4YGQ4eoZuxrp6eb3qZEeA&oe=69B6BC80',link:'https://www.instagram.com/p/DU-Y9NHCWns/?img_index=1'},
+        {src:'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/613031178_18044354066709183_3437596707382600369_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MzgwNTQ2Nzg4MzA2OTg1MzAwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=TPKf2VjGloAQ7kNvwGGaUXT&_nc_oc=Adlv4hnl-CuWPMse4Doi3aoM7GvYYLleURIdwJK49whc529XVrQp5obr1SddADBA6B0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfzMP9hNoKfgosqQSgXwskdEGrtm5m0SJpsqIHLI7sGVgA&oe=69B6CD3B',link:'https://instagram.com/saa.nkhya'},
+        {src:'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/581227539_18038581385709183_5773567055018409634_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=Mzc2NzY4NTE2MzI1ODU2OTQ5NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=IngCdqwxBDcQ7kNvwHeOBSV&_nc_oc=AdlZnMzBZJ53CwKC95Cdw_61KJi1HieWc_1VULm9-4Pb8TgZqaDpuO6sEJ5DCtsIL-Q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=53x4EiUVT_ka3lnDQRK03w&_nc_ss=8&oh=00_AfxJ_i3Y5VFO3Uz-ryXV1-Fsjahwt68_2oOzfY7oBoRz-A&oe=69B6BF79',link:'https://instagram.com/saa.nkhya'},
+        {src:'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/584370831_18039115001709183_8959600104686617961_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=Mzc3MTQyMzgxMTA4Mjc2NzEyMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=zI8zNy5g0pUQ7kNvwF-GRQ_&_nc_oc=AdnRDeLtnupSBUBObj6fJhdxHeF7NcXPx1IgMo8HUAQRTLxz63IkpXO5fnMeVOZidK4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=53x4EiUVT_ka3lnDQRK03w&_nc_ss=8&oh=00_Afy8Rs9uM0GfbuJ3DWu_9oLUpwKY0KTKHZtETRn6Atw9xw&oe=69B6E482',link:'https://instagram.com/saa.nkhya'},
+        {src:'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/588078320_18040190042709183_1237780885319492281_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=Mzc4ODY2MTA3NTg5MDMwMzU4NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=2wM3u6R5zkwQ7kNvwEhsUtd&_nc_oc=AdlE5bNTchCAOHA2ST5GbrYlqD2yQL2ucC4ziRJZmK8OF3A5WDAkCc43JFQN40MoLmY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfwbzLqo_TrHIHdFDt843onpYWkS5rDh7ZV1fMr6ipmwPw&oe=69B6C7B0',link:'https://instagram.com/saa.nkhya'},
+        {src:'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/624097174_18046654016709183_7859694330509047111_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzgyMDcxMjkzODU0MTk2NTQzNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=CFmVw38pOkwQ7kNvwE1y8jg&_nc_oc=Admf56LUA0PLw6pr8bSk9c9IBBAOWRCUcyO45-vuO32-LyMDnQgk4VF8iAjnLHMGMTo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfwnrzrKLp0vRFRK2DSdFCF7KwwjNS9NMwTo3ck5RXbzSA&oe=69B6BD87',link:'https://instagram.com/saa.nkhya'},
+        {src:'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/641228239_18049999184709183_4055711450667492475_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=Mzg0MjM2ODQ2MDk3NDI4NDcyMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=TES6X513M34Q7kNvwEpjZ84&_nc_oc=AdmqzHh1RaeBQXUw5ftdNyB_MhQx-r8BVoUIb_402r6AWKpSvwb1hYF6qVwebt-Rd9o&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=olt3YdPwNgQcU6tIlVi7aQ&_nc_ss=8&oh=00_AfznRjd-stXwSARPxLJNkme1rkWT-P3SVbafPQZEwjfdog&oe=69B6EACC',link:'https://instagram.com/saa.nkhya'},
+        {src:'https://instagram.fdel77-1.fna.fbcdn.net/v/t51.82787-15/587321451_18039546266709183_2643993392690065013_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzc3NDMxMDI0Njc0ODA2NDgzMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=BI9ehuuXgoEQ7kNvwF9UrNB&_nc_oc=AdkTSyKWd-d99yV6e3FStEyB4vXuyXhdBPXMy2C1VD95SLaZCqD4jOTLcVlGDW-8oMk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fdel77-1.fna&_nc_gid=53x4EiUVT_ka3lnDQRK03w&_nc_ss=8&oh=00_AfxPxxgmNF12WNwzE6EwFd7dqgK3k6P2FMB1_ROdwl-8kA&oe=69B6DAEB',link:'https://instagram.com/saa.nkhya'}
     ];
-
-    function makePost(p) {
-        var div = document.createElement('div');
-        div.className = 'insta-post';
-        div.innerHTML =
-            '<img src="' + p.src + '" alt="Instagram post" loading="lazy">' +
-            '<div class="insta-post-overlay">' +
-                '<svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>' +
-            '</div>';
-        div.onclick = function(){ window.open(p.link, '_blank'); };
-        return div;
-    }
-
-    var r1 = document.getElementById('row1');
-
-    [posts, posts].forEach(function(set){
-        set.forEach(function(p){ r1.appendChild(makePost(p)); });
-    });
+    function makePost(p){var div=document.createElement('div');div.className='insta-post';div.innerHTML='<img src="'+p.src+'" alt="Instagram post" loading="lazy"><div class="insta-post-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>';div.onclick=function(){window.open(p.link,'_blank');};return div;}
+    var r1=document.getElementById('row1');
+    [posts,posts].forEach(function(set){set.forEach(function(p){r1.appendChild(makePost(p));});});
 })();
 </script>
 
@@ -1165,7 +911,7 @@ function aboutTab(el, panelId) {
                 <div style="border:1px solid #E7E1D7;border-radius:24px;padding:32px;">
                     <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;"><i class="fa-solid fa-phone" style="font-size:20px;color:#6B7D5C;"></i><div><div style="font-size:10px;color:#6B7D5C;margin-bottom:3px;">CALL US</div><a href="tel:+919876543210" style="font-weight:500;color:#3E3A36;text-decoration:none;">+91 98765 43210</a></div></div>
                     <div style="height:1px;background:#E7E1D7;margin-bottom:20px;"></div>
-                    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;"><i class="fa-solid fa-envelope" style="font-size:20px;color:#6B7D5C;"></i><div><div style="font-size:10px;color:#6B7D5C;margin-bottom:3px;">EMAIL US</div><a href="/cdn-cgi/l/email-protection#0b636e6767644b786a6a656063726a25686466" style="font-weight:500;color:#3E3A36;text-decoration:none;"><span class="__cf_email__" data-cfemail="b3dbd6dfdfdcf3c0d2d2ddd8dbcad29dd0dcde">[email&#160;protected]</span></a></div></div>
+                    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;"><i class="fa-solid fa-envelope" style="font-size:20px;color:#6B7D5C;"></i><div><div style="font-size:10px;color:#6B7D5C;margin-bottom:3px;">EMAIL US</div><a href="/cdn-cgi/l/email-protection#c5ada0a9a9aa85b6a4a4abaeadbca4eba6aaa8" style="font-weight:500;color:#3E3A36;text-decoration:none;"><span class="__cf_email__" data-cfemail="29414c454546695a48484742415048074a4644">[email&#160;protected]</span></a></div></div>
                     <div style="height:1px;background:#E7E1D7;margin-bottom:20px;"></div>
                     <div><div style="font-size:10px;color:#6B7D5C;margin-bottom:4px;">OUR STUDIO</div><div style="font-weight:500;">Bengaluru, Karnataka</div><div style="font-size:11px;color:#6B7D5C;margin-top:3px;">India</div></div>
                     <div style="margin-top:24px;background:#E7E1D7;border-radius:18px;height:180px;display:flex;align-items:center;justify-content:center;position:relative;">
@@ -1180,8 +926,7 @@ function aboutTab(el, panelId) {
 </section>
 
 <!-- ═══ BOOKING MODAL ═══ -->
-<div id="booking-modal" onclick="if(event.target===this)hideBookingModal()"
-     style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;z-index:9998;padding:16px;">
+<div id="booking-modal" onclick="if(event.target===this)hideBookingModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;z-index:9998;padding:16px;">
     <div style="max-width:480px;width:100%;background:white;border-radius:24px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.3);">
         <div style="padding:24px 28px 14px;border-bottom:1px solid #E7E1D7;display:flex;align-items:center;justify-content:space-between;">
             <div style="font-weight:500;">Book a Vastu Consultation</div>
@@ -1208,144 +953,58 @@ function aboutTab(el, panelId) {
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ── HAMBURGER ───────────────────────────────────────────
-function toggleMenu() {
-    var menu = document.getElementById('mobile-menu');
-    var icon = document.getElementById('ham-icon');
-    if (menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        icon.className = 'fa-solid fa-bars';
-    } else {
-        menu.classList.add('open');
-        icon.className = 'fa-solid fa-xmark';
-    }
-}
-function closeMenu() {
-    document.getElementById('mobile-menu').classList.remove('open');
-    document.getElementById('ham-icon').className = 'fa-solid fa-bars';
-}
-window.addEventListener('resize', function() {
-    if (window.innerWidth >= 1024) closeMenu();
-});
-document.addEventListener('click', function(e) {
-    var menu = document.getElementById('mobile-menu');
-    var btn  = document.getElementById('ham-btn');
-    if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
-        closeMenu();
-    }
-});
-
-// ── SMOOTH SCROLL ────────────────────────────────────────
-function smoothScrollTo(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-    closeMenu();
-}
-
-// ── PROGRESS BAR ─────────────────────────────────────────
-window.addEventListener('scroll', function() {
-    var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
-    document.getElementById('progress-bar').style.width = Math.min(pct, 100) + '%';
-});
-
-// ── HIDE NAV ON SCROLL DOWN ───────────────────────────────
-var lastY = 0;
-window.addEventListener('scroll', function() {
-    var y = window.scrollY;
-    document.getElementById('main-nav').style.transform = (y > lastY && y > 120) ? 'translateY(-100%)' : 'translateY(0)';
-    lastY = y;
-});
-
-// ── PHILOSOPHY PILLS ─────────────────────────────────────
-function philSelect(el) {
-    document.querySelectorAll('.phil-pill').forEach(function(p) { p.classList.remove('active'); });
-    el.classList.add('active');
-}
-
-// ── PROJECT TAG TOGGLE ───────────────────────────────────
-function toggleTag(el) {
-    var on = el.style.background === 'rgb(201, 106, 61)';
-    el.style.background  = on ? '' : '#C96A3D';
-    el.style.color       = on ? '' : 'white';
-    el.style.borderColor = on ? '#E7E1D7' : '#C96A3D';
-}
-
-// ── BOOKING MODAL ────────────────────────────────────────
-var modalOpen = false;
-function showBookingModal() {
-    document.getElementById('booking-modal').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    modalOpen = true;
-}
-function hideBookingModal() {
-    document.getElementById('booking-modal').style.display = 'none';
-    document.body.style.overflow = '';
-    modalOpen = false;
-}
-function pickConsult(el) {
-    document.querySelectorAll('#consult-types > div').forEach(function(d) {
-        d.style.background = ''; d.style.color = ''; d.style.borderColor = '#E7E1D7';
-    });
-    el.style.background = '#C96A3D';
-    el.style.color = 'white';
-    el.style.borderColor = '#C96A3D';
-}
-function submitBooking() {
-    hideBookingModal();
-    toast("Consultation request received. We'll call you shortly.");
-}
-
-// ── CONTACT FORM ─────────────────────────────────────────
-function handleSubmit(e) {
-    e.preventDefault();
-    var name = document.getElementById('name').value.trim();
-    if (!name) return;
-    e.target.reset();
-    toast('Thank you, ' + name.split(' ')[0] + '! We received your message.');
-}
-
-// ── TOAST ─────────────────────────────────────────────────
-function toast(msg) {
-    var t = document.createElement('div');
-    t.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#3E3A36;color:white;padding:13px 22px;border-radius:9999px;font-size:13px;font-weight:500;z-index:99999;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,0.2);';
-    t.textContent = msg;
-    document.body.appendChild(t);
-    setTimeout(function() {
-        t.style.transition = 'opacity 0.4s,transform 0.4s';
-        t.style.opacity = '0';
-        t.style.transform = 'translateX(-50%) translateY(12px)';
-        setTimeout(function() { t.remove(); }, 400);
-    }, 3000);
-}
-
-// ── ESC KEY ───────────────────────────────────────────────
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modalOpen) hideBookingModal();
-});
+function toggleMenu(){var menu=document.getElementById('mobile-menu'),icon=document.getElementById('ham-icon');if(menu.classList.contains('open')){menu.classList.remove('open');icon.className='fa-solid fa-bars';}else{menu.classList.add('open');icon.className='fa-solid fa-xmark';}}
+function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');document.getElementById('ham-icon').className='fa-solid fa-bars';}
+window.addEventListener('resize',function(){if(window.innerWidth>=1024)closeMenu();});
+document.addEventListener('click',function(e){var menu=document.getElementById('mobile-menu'),btn=document.getElementById('ham-btn');if(menu.classList.contains('open')&&!menu.contains(e.target)&&!btn.contains(e.target)){closeMenu();}});
+function smoothScrollTo(id){var el=document.getElementById(id);if(!el)return;window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});closeMenu();}
+window.addEventListener('scroll',function(){var pct=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.getElementById('progress-bar').style.width=Math.min(pct,100)+'%';});
+var lastY=0;window.addEventListener('scroll',function(){var y=window.scrollY;document.getElementById('main-nav').style.transform=(y>lastY&&y>120)?'translateY(-100%)':'translateY(0)';lastY=y;});
+function philSelect(el){document.querySelectorAll('.phil-pill').forEach(function(p){p.classList.remove('active');});el.classList.add('active');}
+function toggleTag(el){var on=el.style.background==='rgb(201, 106, 61)';el.style.background=on?'':'#C96A3D';el.style.color=on?'':'white';el.style.borderColor=on?'#E7E1D7':'#C96A3D';}
+var modalOpen=false;
+function showBookingModal(){document.getElementById('booking-modal').style.display='flex';document.body.style.overflow='hidden';modalOpen=true;}
+function hideBookingModal(){document.getElementById('booking-modal').style.display='none';document.body.style.overflow='';modalOpen=false;}
+function pickConsult(el){document.querySelectorAll('#consult-types > div').forEach(function(d){d.style.background='';d.style.color='';d.style.borderColor='#E7E1D7';});el.style.background='#C96A3D';el.style.color='white';el.style.borderColor='#C96A3D';}
+function submitBooking(){hideBookingModal();toast("Consultation request received. We'll call you shortly.");}
+function handleSubmit(e){e.preventDefault();var name=document.getElementById('name').value.trim();if(!name)return;e.target.reset();toast('Thank you, '+name.split(' ')[0]+'! We received your message.');}
+function toast(msg){var t=document.createElement('div');t.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#3E3A36;color:white;padding:13px 22px;border-radius:9999px;font-size:13px;font-weight:500;z-index:99999;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,0.2);';t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.style.transition='opacity 0.4s,transform 0.4s';t.style.opacity='0';t.style.transform='translateX(-50%) translateY(12px)';setTimeout(function(){t.remove();},400);},3000);}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modalOpen)hideBookingModal();});
 
 // ── RESPONSIVE GRIDS ─────────────────────────────────────
 function applyGrids() {
     var w = window.innerWidth;
-    var dg = document.getElementById('phil-grid');
-    if (dg) dg.style.gridTemplateColumns = w >= 860 ? '1fr 1fr' : '1fr';
-    var ag = document.getElementById('about-grid');
-    if (ag) ag.style.gridTemplateColumns = w >= 860 ? '0.7fr 1fr' : '1fr';
-    var cg = document.getElementById('contact-grid');
-    if (cg) cg.style.gridTemplateColumns = w >= 768 ? '1fr 1fr' : '1fr';
+
     var hg = document.getElementById('hero-grid');
-    // Only set grid columns on desktop — mobile layout handled by CSS flex
-    if (w > 640) {
-        var dg = document.getElementById('phil-grid');
-        if (dg) dg.style.gridTemplateColumns = w >= 860 ? '1fr 1fr' : '1fr';
-        var ag = document.getElementById('about-grid');
-        if (ag) ag.style.gridTemplateColumns = w >= 860 ? '0.7fr 1fr' : '1fr';
-        var cg = document.getElementById('contact-grid');
-        if (cg) cg.style.gridTemplateColumns = w >= 768 ? '1fr 1fr' : '1fr';
-        var hg2 = document.getElementById('hero-grid');
-        if (hg2) hg2.style.gridTemplateColumns = w >= 1024 ? '1fr 1fr' : '1fr';
-        if (hg2) hg2.style.gap = w <= 1023 ? '32px' : '56px';
+    if (hg) {
+        if (w > 640) {
+            hg.style.gridTemplateColumns = '1fr 1fr';
+            hg.style.gap = w >= 1024 ? '56px' : '32px';
+            hg.style.display = 'grid';
+        } else {
+            hg.style.gridTemplateColumns = '';
+            hg.style.gap = '';
+            hg.style.display = '';
+        }
     }
+
+    var dg = document.getElementById('phil-grid');
+    if (dg) dg.style.gridTemplateColumns = w >= 860 ? '1fr 1fr' : '';
+
+    var ag = document.getElementById('about-grid');
+    if (ag) {
+        if (w >= 860) {
+            ag.style.gridTemplateColumns = '0.7fr 1fr';
+            ag.style.display = 'grid';
+            ag.style.flexDirection = '';
+        } else {
+            ag.style.gridTemplateColumns = '';
+            ag.style.display = '';
+        }
+    }
+
+    var cg = document.getElementById('contact-grid');
+    if (cg) cg.style.gridTemplateColumns = w >= 768 ? '1fr 1fr' : '';
 }
 window.addEventListener('resize', applyGrids);
 applyGrids();
